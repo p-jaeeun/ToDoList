@@ -4,7 +4,8 @@ function saveCoords(coordsObj) {
   localStorage.setItem(COORDS, JSON.stringify(coordsObj));
 }
 
-function handleGeoSucees(position) {
+function handleGeoSucces(position) {
+  console.log("성공!");
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
   const coordsObj = {
@@ -12,7 +13,6 @@ function handleGeoSucees(position) {
     longitude,
   };
   saveCoords(coordsObj);
-  console.log("성공!");
 }
 
 function handleGeoError(position) {
@@ -21,7 +21,7 @@ function handleGeoError(position) {
 
 // 좌표 요청
 function askForCoords() {
-  navigator.geolocation.getCurrentPosition(handleGeoSucees, handleGeoError);
+  navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError);
   console.log("navigator는 되나");
 }
 
@@ -29,8 +29,10 @@ function loadCoords() {
   const loadedCords = localStorage.getItem(COORDS);
   if (loadedCords === null) {
     askForCoords();
+    console.log("!!!!!!!!");
   } else {
     // getWeather
+    console.log("????????");
   }
 }
 
