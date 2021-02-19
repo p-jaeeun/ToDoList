@@ -1,18 +1,36 @@
+const weather = document.querySelector(".js-weather");
+const API_KEY = "69bfe8ce68f0cbda816e4b9eda7ca7e2";
 const COORDS = "coords";
+
+// API 호출
+function getWeather(lat, lon) {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (json) {
+      const temperture = json.main.temp;
+      const place = json.name;
+      weather.innerText = `${temperture} @${place}`;
+    });
+}
 
 function saveCoords(coordsObj) {
   localStorage.setItem(COORDS, JSON.stringify(coordsObj));
 }
 
 function handleGeoSucces(position) {
-  console.log("성공!");
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
   const coordsObj = {
     latitude,
     longitude,
   };
+
   saveCoords(coordsObj);
+  getWeather(latitude, longitude);
 }
 
 function handleGeoError(position) {
@@ -22,17 +40,17 @@ function handleGeoError(position) {
 // 좌표 요청
 function askForCoords() {
   navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError);
-  console.log("navigator는 되나");
 }
 
 function loadCoords() {
-  const loadedCords = localStorage.getItem(COORDS);
-  if (loadedCords === null) {
+  const loadedCoords = localStorage.getItem(COORDS);
+  if (loadedCoords === null) {
     askForCoords();
-    console.log("!!!!!!!!");
   } else {
-    // getWeather
-    console.log("????????");
+    // get Weather
+    const parsedCoords = JSON.parse(loadedCoords);
+    console.log(parsedCoords);
+    getWeather(parsedCoords.latitude, parsedCoords.longitude);
   }
 }
 
