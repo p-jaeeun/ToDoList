@@ -1,11 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gaegu", cursive;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
 body {
   background-color: #2c3e50;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
 }
 
-body {
-  color: #34495e;
+.clock {
+  margin-top: 15%;
 }
 
+.clock h1 {
+  font-size: 8rem;
+}
+
+input {
+  text-align: center;
+  background-color: transparent;
+  outline-style: none;
+  color: #fff;
+}
+
+.input-name::placeholder {
+  color: #fff;
+  font-size: 40px;
+  font-style: italic;
+}
+
+.input-name {
+  width: 400px;
+  height: 100px;
+  color: #fff;
+  font-size: 40px;
+  text-align: center;
+  border: none;
+  /* 브라우저별 기본 스타일링 제거 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.input-toDo::placeholder {
+  color: #fff;
+  font-size: 20px;
+}
+
+.input-toDo {
+  margin: 20px 0px;
+  font-size: 20px;
+  font-weight: 300;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: #000;
+  margin: 5px 0 0 10px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  outline-style: none;
+  width: 20px;
+  height: 20px;
+}
+
+button:hover {
+  background-color: rgba(224, 48, 48);
+  color: #fff;
+}
+
+.chkBtn {
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
+  padding-top: 10px;
+}
+
+.weather {
+  top: 0;
+  right: 0;
+  padding: 20px 30px 0 0;
+  position: absolute;
+  font-size: 25px;
+}
 .btn {
   cursor: pointer;
 }
@@ -14,15 +106,18 @@ body {
   color: #7f8c8d;
 }
 
+/* display options */
 .form {
   display: none;
 }
+
 .greetings {
   display: none;
 }
 
 .showing {
   display: block;
+  font-size: 50px;
 }
 
 .bgImage {

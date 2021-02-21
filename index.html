@@ -3,21 +3,27 @@
   <head>
     <title>Something</title>
     <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
   </head>
   <body>
-    <div class="js-clock">
-      <h1>00:00</h1>
+    <div class="js-clock clock">
+      <h1 class="js-title">00:00</h1>
     </div>
     <form class="js-form form">
-      <input type="text" placeholder="What is your name?" />
+      <input class="input-name" type="text" placeholder="What is your name?" />
     </form>
     <h4 class="js-greetings greetings"></h4>
     <form class="js-toDoForm">
-      <input type="text" placeholder="Write a to do" />
+      <input class="input-toDo" type="text" placeholder="Write a to do" />
     </form>
     <ul class="js-toDoList"></ul>
-    <span class="js-weather"></span>
+    <span class="js-weather weather"></span>
     <script src="clock.js"></script>
     <script src="greeting.js"></script>
     <script src="todo.js"></script>
